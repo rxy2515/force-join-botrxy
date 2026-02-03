@@ -135,16 +135,17 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 def main():
-    app = ApplicationBuilder().token(BOT_TOKEN).build()
+    from telegram.ext import ApplicationBuilder, CommandHandler
 
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, new_member_handler))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, message_checker))
-    app.add_handler(CallbackQueryHandler(callback_handler))
+async def start(update, context):
+    await update.message.reply_text("Force-subscribe bot active!")
 
-    print("Bot running...")
-    app.run_polling(allowed_updates=["message", "callback_query", "chat_member"])
+def main():
+    application = ApplicationBuilder().token(BOT_TOKEN).build()
 
+    application.add_handler(CommandHandler("start", start))
 
-if __name__ == "__main__":
+    application.run_polling()
+
+if name == "__main__":
     main()
