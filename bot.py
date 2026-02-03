@@ -146,5 +146,5 @@ def main():
     app.run_polling(allowed_updates=["message", "callback_query", "chat_member"])
 
 
-if name == "main":
+if __name__ == "__main__":
     main()
