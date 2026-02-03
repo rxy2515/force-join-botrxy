@@ -23,7 +23,6 @@ MUTE_SECONDS = 30             # 30 seconds
 # Full permissions for unmuting
 FULL_PERMS = ChatPermissions(
     can_send_messages=True,
-    can_send_media_messages=True,
     can_send_polls=True,
     can_send_other_messages=True,
     can_add_web_page_previews=True,
