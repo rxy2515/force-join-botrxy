@@ -132,7 +132,7 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except:
         await query.answer("Bot must be admin in channel.", show_alert=True)
         async def start(update, context):
-    await update.message.reply_text("Force-subscribe bot active!")
+            await update.message.reply_text("Force-subscribe bot active!")
 
 
 def main():
